@@ -27,9 +27,11 @@
     </div>
   
     <!-- Logout Button -->
-    <a href="/logout" class="bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg mt-10 font-semibold transition">
-      Log Out
-    </a>
+    <form action="{{ route('logout') }}" method="POST" class="inline">
+        @csrf
+        <button type="submit" class="text-white bg-red-600 hover:bg-red-700 py-2 rounded-lg font-semibold transition">Logout</button>
+    </form>
+
   </aside>
 
 <main class="w-full">
