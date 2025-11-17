@@ -27,9 +27,12 @@
             @auth
                 <div class="space-x-4 flex items-center">
                 <span class="text-white font-semibold">{{ Auth::user()->name }}</span>
-                <a href="" class="bg-[#851111] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#9b8a7a] transition-all">
-                    Logout
-                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="bg-[#847568] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#9b8a7a] transition-all">
+                        Logout
+                    </button>
+                </form>
                 </div>
             @else
                 <a href="{{ route('login') }}" class="bg-[#847568] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#9b8a7a] transition-all">

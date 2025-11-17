@@ -19,8 +19,16 @@ Route::middleware('auth')->group(function () {
 Route::get('/search', function () {
     return view('search');
 })->name('search');
+
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
 
+Route::get('/recipe', function () {
+    return view('recipe.recipe');
+})->name('recipe');
+    
+Route::get('/recipe/add', function () {
+    return view('recipe.addrecipe');
+})->name('recipe/add');
 require __DIR__.'/auth.php';

@@ -57,24 +57,24 @@
             ['name' => 'Cookies', 'image' => 'cookies.png'],
             ['name' => 'Cheesecake', 'image' => 'cheesecake.png'],
             ['name' => 'Cupcake', 'image' => 'cupcake.png'],
-            ['name' => 'Kue Ultah', 'image' => 'kueultah.png'],
-            ['name' => 'Brownies', 'image' => 'cookies.png'],
-            ['name' => 'Pie', 'image' => 'cookies.png']
+            ['name' => 'Donat', 'image' => 'donat.png'],
+            ['name' => 'Bolu', 'image' => 'bolu.png'],
+            ['name' => 'Pie', 'image' => 'pie.png']
         ];
         @endphp
 
         @foreach ($categories as $category)
-        <div class="card flex w-full sm:w-[48%] lg:w-[30%] relative">
+        <div class="card flex w-full sm:w-[48%] lg:w-[30%] relative hover:-translate-y-2 transition-all duration-300">
             <div class="w-1/3 flex justify-center items-center relative">
                 <img 
                     src="{{ asset('images/' . $category['image']) }}" 
                     alt="{{ $category['name'] }}" 
-                    class="absolute z-10 w-75 -right-16 top-1/2 -translate-y-1/2"
+                    class="absolute z-10 w-100 -right-16 top-1/2 -translate-y-1/2"
                 >
             </div>
             <div class="p-6 bg-[#564638] w-2/3 rounded-lg flex flex-col justify-center items-center space-y-4 shadow-2xl">
                 <h3 class="text-3xl font-extrabold text-white">{{ $category['name'] }}</h3>
-                <a href="#" class="text-white bg-[#3C2E22] px-4 py-2 rounded-2xl hover:bg-amber-800 transform hover:-translate-y-1 duration-200">
+                <a href="#" class="text-white text-lg font-semibold bg-[#3C2E22] px-6 py-2 rounded-2xl hover:bg-amber-800 transform hover:-translate-y-1 duration-200">
                     Lihat <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
