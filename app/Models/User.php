@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-        protected $table = 'users';
+    protected $table = 'users';
     protected $primaryKey = 'id_user'; // ganti sesuai nama kolom kamu
     public $incrementing = true; // jika kolomnya auto increment
     protected $keyType = 'int'; // atau 'string' kalau bukan integer
@@ -48,5 +48,19 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function recipes()
+    {
+        return $this->hasMany(\App\Models\Recipe::class, 'id_user');
+    }
+
+    public function followers()
+    {
+        return $this->hasMany(Follow::class, 'user_id', 'id_user');
+    }
+
+    public function following()
+    {
+        return $this->hasMany(Follow::class, 'follower_id', 'id_user');
     }
 }

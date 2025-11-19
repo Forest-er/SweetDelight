@@ -12,11 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id('id_comment');
-            $table->foreignId('id_recipe')->references('id_recipe')->on('recipes');
-            $table->foreignId('id_user')->references('id_user')->on('users');
-            $table->text('isi');
+            $table->id();
+            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_recipe');
+            $table->text('comment');
             $table->timestamps();
+
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
+            $table->foreign('id_recipe')->references('id_recipe')->on('recipes')->onDelete('cascade');
         });
     }
 

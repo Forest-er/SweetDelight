@@ -57,4 +57,19 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    public function show()
+    {
+        $user = auth()->user();
+        $recipes = $user->recipes()->latest()->get(); // ambil semua resep user
+        return view('profile.show', compact('user', 'recipes'));
+    }
+    public function yourRecipes(Request $request): View
+    {
+        $user = $request->user();
+
+        // Ambil semua resep milik user terbaru dulu
+        $recipe = $user->recipes()->latest()->get();
+
+        return view('profile.recipes', compact('recipe'));
+    }
 }
